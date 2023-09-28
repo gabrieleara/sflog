@@ -1,0 +1,7 @@
+#ifndef SFLOG_CONFIG_H
+#define SFLOG_CONFIG_H
+
+// Integer option representing the log level
+#define SFLOG_LEVEL @SFLOG_LEVEL_VALUE@
+
+#endif // SFLOG_CONFIG_H
