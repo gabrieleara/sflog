@@ -30,7 +30,7 @@ namespace sflog {
     }
 
     constexpr level_t LOG_LEVEL =
-        magic_enum::enum_value<level_t>(SFLOG_LEVEL_VALUE);
+        magic_enum::enum_value<level_t>(SFLOG_LEVEL);
 
     constexpr std::size_t LOG_LEVEL_MAXLEN =
         max_size(magic_enum::enum_names<level_t>());
