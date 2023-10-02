@@ -22,10 +22,16 @@ endfunction()
 
 function(add_option_positive option_name default_value message)
     add_option_string(${option_name} ${default_value} "${message}")
+
     if(${option_name} MATCHES "^[1-9][0-9]*")
     else()
         message(FATAL_ERROR "Option ${option_name} must be a positive integer!")
     endif()
+endfunction()
+
+function(set_index_name the_list the_name the_output)
+    set(the_value "${${the_name}}")
+    set_index(${the_list} ${the_value} ${the_output})
 endfunction()
 
 # function(add_option_internal option_name default_value)
@@ -49,7 +55,7 @@ function(add_option_numbered_choice option_name default_value values_list messag
     set_property(CACHE ${option_name} PROPERTY STRINGS ${values_list})
 
     # add_option_internal(${option_name}_VALUE 0)
-    set_index("${values_list}" "${${option_name}}" ${option_name}_VALUE)
+    set_index_name("${values_list}" ${option_name} ${option_name}_VALUE)
 endfunction()
 
 function(check_optional_library library_name)
